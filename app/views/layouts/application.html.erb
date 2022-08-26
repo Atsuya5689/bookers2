@@ -20,17 +20,7 @@
         <li>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
         </li>
-          <% if @user == current_user %>
-              <h2>User info</h2>
-              <p><%= @user.name %></p>
-              <p><%= @user.introduction %></p>
-              <p><%= link_to "edit", edit_user_path(@user.id) %></p>
-          <% else %>
-              <h2>User info</h2>
-              <p><%= @user.name %></p>
-              <p><%= @user.introduction %></p>
-              <p><%= link_to "edit", user_path(current_user.id) %></p>
-          <% end %>
+
 
       <% else %>
         <li>
@@ -43,5 +33,9 @@
     </header>
 
     <%= yield %>
+
+    <footer>
+      <p>CopyRight Infratop.inc</p>
+    </footer>
   </body>
 </html>

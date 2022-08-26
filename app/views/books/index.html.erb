@@ -1,5 +1,26 @@
-  <h2>Books</h2>
-  <% @book.each do |book| %>
+<% if @user == current_user %>
+    <h2>User info</h2>
+    <p><%= @user.name %></p>
+    <p><%= @user.introduction %></p>
+    <p><%= link_to "edit", edit_user_path(@user.id) %></p>
+<% else %>
+    <h2>User info</h2>
+    <p><%= @user.name %></p>
+    <p><%= @user.introduction %></p>
+    <p><%= link_to "edit", user_path(current_user.id) %></p>
+<% end %>
+
+<h1>本の投稿フォーム</h1>
+  <%= form_with model: Book.new do |f| %>
+    <h4>ショップ名</h4>
+      <%= f.text_field :title %>
+    <h4>説明</h4>
+      <%= f.text_area :body %>
+    <%= f.submit '投稿' %>
+  <% end %>
+
+<h2>Books</h2>
+
       <table>
         <t.head>
           <tr>
@@ -8,7 +29,7 @@
             <th><strong>Opinion</strong></th>
           </tr>
         </t.head>
-
+        <% @book.each do |book| %>
         <t.body>
           <tr>
             <td><span><%= image_tag 'no_image.jpg' %></span></td>
@@ -16,6 +37,6 @@
             <td><span><%= book.body %></span></td>
           </tr>
         </t.body>
+        <% end %>
       </table>
 
-  <% end %>

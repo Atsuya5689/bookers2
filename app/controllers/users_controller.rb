@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    render :layout => nil
     @user = User.find(params[:id])
   end
 
