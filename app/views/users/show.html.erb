@@ -1,0 +1,21 @@
+  <h2>Books</h2>
+  <% @books.each do |book| %>
+      <table>
+        <t.head>
+          <tr>
+            <th></th>
+            <th><strong>Title</strong></th>
+            <th><strong>Opinion</strong></th>
+          </tr>
+        </t.head>
+
+        <t.body>
+          <tr>
+            <td><span><%= image_tag 'no_image.jpg' %></span></td>
+            <td><span><%= book.title %></span></td>
+            <td><span><%= book.body %></span></td>
+          </tr>
+        </t.body>
+      </table>
+
+  <% end %>

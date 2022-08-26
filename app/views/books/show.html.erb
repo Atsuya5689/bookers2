@@ -1,0 +1,23 @@
+<h2>Book detail</h2>
+      <table>
+        <t.head>
+          <tr>
+            <th></th>
+            <th><strong>Title</strong></th>
+            <th><strong>Opinion</strong></th>
+          </tr>
+        </t.head>
+
+        <t.body>
+          <tr>
+            <td><span><%= image_tag 'no_image.jpg' %></span></td>
+            <td><span><%= @book.title %></span></td>
+            <td><span><%= @book.body %></span></td>
+            <td><%= link_to "Edit", edit_book_path(@book.id), class: "edit" %></td>
+            <td><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" =>  "Are you sure？", class: "delete" %></td>
+          </tr>
+          <td><span><%= @user.name %></span></td>
+        </t.body>
+
+
+      </table>
