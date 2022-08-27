@@ -32,7 +32,7 @@
         <% @book.each do |book| %>
         <t.body>
           <tr>
-            <td><span><%= image_tag 'no_image.jpg' %></span></td>
+            <td><span><%= image_tag book.user.get_image %></span></td>
             <td><span><%= link_to book.title, book_path(book.id), class: "show"  %></span></td>
             <td><span><%= book.body %></span></td>
           </tr>
