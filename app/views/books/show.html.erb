@@ -31,7 +31,7 @@
 
         <t.body>
           <tr>
-            <td><span><%= image_tag 'no_image.jpg' %></span></td>
+            <td><span><%= image_tag @book.user.get_image %></span></td>
             <td><span><%= @book.title %></span></td>
             <td><span><%= @book.body %></span></td>
             <td><%= link_to "Edit", edit_book_path(@book.id), class: "edit" %></td>

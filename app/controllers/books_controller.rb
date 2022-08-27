@@ -14,6 +14,7 @@ class BooksController < ApplicationController
   def index
     @book = Book.all
     @user = current_user
+    @users = User.all
   end
 
   def edit
