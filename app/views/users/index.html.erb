@@ -31,11 +31,7 @@
         <% @users.each do |user| %>
         <t.body>
           <tr>
-            <% if user.image.attached? %>
-            <td><span><%= image_tag user.image %></span></td>
-            <% else %>
-            <td><span><%= image_tag 'no_image.jpg' %></span></td>
-            <% end %>
+            <td><span><%= image_tag user.get_image %></span></td>
             <td><span><%= user.name %></span></td>
             <td><%= link_to "Show", user_path(user.id), class: "show" %></td>
 
