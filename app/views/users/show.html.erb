@@ -33,7 +33,11 @@
 
         <t.body>
           <tr>
+            <% if @user.image.attached? %>
+            <td><span><%= image_tag @user.image %></span></td>
+            <% else %>
             <td><span><%= image_tag 'no_image.jpg' %></span></td>
+            <% end %>
             <td><span><%= book.title %></span></td>
             <td><span><%= book.body %></span></td>
           </tr>
