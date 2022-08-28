@@ -19,13 +19,13 @@
     <p><%= link_to "edit", user_path(current_user.id) %></p>
 <% end %>
 
-<h1>本の投稿フォーム</h1>
+<h1>New book</h1>
   <%= form_with model: Book.new do |f| %>
     <h4>ショップ名</h4>
       <%= f.text_field :title %>
     <h4>説明</h4>
       <%= f.text_area :body %>
-    <%= f.submit '投稿' %>
+    <%= f.submit 'Create Book' %>
   <% end %>
 
 <h2>Books</h2>
@@ -41,7 +41,10 @@
         <% @books.each do |book| %>
         <t.body>
           <tr>
-            <td><span><%= image_tag book.user.get_image %></span></td>
+
+            <td><span><%= link_to user_path(book.user) do %>
+              <%= image_tag book.user.get_profile_image %>
+                            <% end %></span></td>
             <td><span><%= link_to book.title, book_path(book.id), class: "show"  %></span></td>
             <td><span><%= book.body %></span></td>
           </tr>
