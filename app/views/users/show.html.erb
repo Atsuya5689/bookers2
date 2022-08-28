@@ -11,7 +11,7 @@
 <% end %>
 
  <h1>本の投稿フォーム</h1>
-  <%= form_with model: Book.new, url:'books_path' do |f| %>
+  <%= form_with model: Book.new do |f| %>
     <h4>ショップ名</h4>
       <%= f.text_field :title %>
     <h4>説明</h4>
