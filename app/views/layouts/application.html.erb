@@ -33,6 +33,7 @@
                 <% end %>
               </li>
 
+
               <li>
                 <%= link_to  users_path, {class: "text-white"} do %>
                 <i class="fas fa-users"></i> Users
@@ -47,7 +48,7 @@
 
               <li>
                 <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i> Log out
+                <i class="text-white fas fa-sign-out-alt"></i> <span class="text-white">Log out</span>
                 <% end %>
               </li>
 
