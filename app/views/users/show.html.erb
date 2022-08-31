@@ -49,6 +49,7 @@
                 </span></td>
                 <td><span><%= link_to book.title, book_path(book.id) %></span></td>
                 <td><span><%= book.body %></span></td>
+                <td><span><p><%= link_to "#{book.book_comments.count} コメント", book_path(book.id) %></p></span></td>
               </tr>
             </t.body>
             <% end %>
