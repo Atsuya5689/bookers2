@@ -22,4 +22,8 @@ class User < ApplicationRecord
     profile_image.variant(resize_to_limit: [100, 100]).processed
   end
 
+  def favorited_by?(user)
+    favorites.exists?(user_id: user.id)
+  end
+
 end
