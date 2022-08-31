@@ -3,6 +3,7 @@
     <div class='col-md-3'>
 
       <h2>User info</h2>
+      <%= image_tag @user.get_profile_image %>
       <p><%= @user.name %></p>
       <p><%= @user.introduction %></p>
       <div class='row'>
@@ -54,14 +55,15 @@
                   <%= link_to book_favorites_path(@book), method: :delete do %>
                     ♥<%= @book.favorites.count %>
                   <% end %>
-                </p></span></td>
+                </p>
               <% else %>
                 <p>
                   <%= link_to book_favorites_path(@book), method: :post do %>
-                      ♡<%= @book.favorites.count %>
+                    ♡<%= @book.favorites.count %>
                   <% end %>
-                </P>
+                </p>
               <% end %>
+              </span></td>
 
             </tr>
             <tr>
@@ -70,13 +72,22 @@
           </t.body>
         </table>
 
+        <% if @book_comment.errors.any? %>
+          エラーが発生しました。
+          <% @book_comment.errors.full_messages.each do |message| %>
+            <%= message %>
+        <% end %>
+        <% end %>
+
         <div>
           <p>コメント件数：<%= @book.book_comments.count %></p>
               <% @book.book_comments.each do |book_comment| %>
                 <p><%= image_tag book_comment.user.get_profile_image %></p>
                 <%= book_comment.user.name %>
                 <%= book_comment.created_at.strftime('%Y/%m/%d') %><%= book_comment.comment %>
-                <%= link_to "Destroy", book_book_comment_path(book_comment.book_id, book_comment.id), method: :delete, "data-confirm" =>  "Are you sure？", class: "delete btn-primary" %>
+                <% if book_comment.user_id == current_user.id %>
+                  <%= link_to "Destroy", book_book_comment_path(book_comment.book_id, book_comment.id), method: :delete, "data-confirm" =>  "Are you sure？", class: "delete btn-primary" %>
+                <% end %>
               <% end %>
         </div>
 
