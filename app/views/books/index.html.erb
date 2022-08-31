@@ -57,6 +57,26 @@
               </span></td>
               <td><span><%= link_to book.title, book_path(book.id), class: "show"  %></span></td>
               <td><span><%= book.body %></span></td>
+
+              <td><span><% if book.favorited_by?(current_user) %>
+                <p>
+                  <%= link_to book_favorites_path(book), method: :delete do %>
+                    ♥<%= book.favorites.count %>
+                  <% end %>
+                </p></span></td>
+              <% else %>
+                <p>
+                  <%= link_to book_favorites_path(book), method: :post do %>
+                      ♡<%= book.favorites.count %>
+                  <% end %>
+                </P>
+              <% end %>
+              <td><span>
+                <p>
+                  <%= link_to "#{book.book_comments.count} コメント", book_path(book.id) %>
+                </p></span>
+              </td>
+
             </tr>
           </t.body>
           <% end %>
